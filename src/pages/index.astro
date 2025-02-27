@@ -21,12 +21,6 @@ const pageTitle = "doom.pet"
 <ul>
 {postsFirst.map((post: any) => <li>{post.frontmatter.shortenedDate}: <a href={post.url}>{post.frontmatter.title}</a></li>)}
 </ul>
-<p>web feeds:</p>
-<ul>
-	<li><a href="/feed/">/feed/</a> (redirects to best format)</li>
-	<ul>
-		<li><a href="/feed.rss">/feed.rss</a> or <a href="/feed/rss.xml">/feed/rss.xml</a> (RSS)</li>
-		<!-- <li><a href="/feed.atom">/feed.atom</a> or <a href="/feed/atom.xml">/feed/atom.xml</a> (Atom)</li> --!>
-	</ul>
-</ul>
+<p><a href="/feed/">view the rss feed here</a></p>
+
 </BaseLayout>
