@@ -1,16 +1,32 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = Object.values(import.meta.glob('./article/*.md', { eager: true }));
+const postsFirst = allPosts.filter((post: any) => post.frontmatter.tags.includes("2022")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
+const postsSecond = allPosts.filter((post: any) => post.frontmatter.tags.includes("2024")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
+const postsThird = allPosts.filter((post: any) => post.frontmatter.tags.includes("2025")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
+const pageTitle = "doom.pet"
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+<h2><mark>doom</mark>.pet</h2>
+<p>all current blog entries:</p>
+<h3>2025</h3>
+<ul>
+{postsThird.map((post: any) => <li>{post.frontmatter.shortenedDate}: <a href={post.url}>{post.frontmatter.title}</a></li>)}
+</ul>
+<h3>2024</h3>
+<ul>
+{postsSecond.map((post: any) => <li>{post.frontmatter.shortenedDate}: <a href={post.url}>{post.frontmatter.title}</a></li>)}
+</ul>
+<h3>2022</h3>
+<ul>
+{postsFirst.map((post: any) => <li>{post.frontmatter.shortenedDate}: <a href={post.url}>{post.frontmatter.title}</a></li>)}
+</ul>
+<p>web feeds:</p>
+<ul>
+	<li><a href="/feed/">/feed/</a> (redirects to best format)</li>
+	<ul>
+		<li><a href="/feed.rss">/feed.rss</a> or <a href="/feed/rss.xml">/feed/rss.xml</a> (RSS)</li>
+		<!-- <li><a href="/feed.atom">/feed.atom</a> or <a href="/feed/atom.xml">/feed/atom.xml</a> (Atom)</li> --!>
+	</ul>
+</ul>
+</BaseLayout>

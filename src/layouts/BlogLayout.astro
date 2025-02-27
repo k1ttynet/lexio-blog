@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+const { frontmatter } = Astro.props;
+Object.values(import.meta.glob('../article/*.md', { eager: true }));
+
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width" />
+		<title>{frontmatter.title} - doom.pet</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="info">
+				<img src={frontmatter.image.url} alt={frontmatter.image.alt}>
+				<h2>{frontmatter.author}: <mark>{frontmatter.title}<mark></h2>
+				<p>
+					<i>Published {frontmatter.pubDate}</i>
+				</p>
+			</div>
+			<hr>
+			<div class="content">
+				<slot />
+				<small>{frontmatter.tags.map((tag: string) => (
+      <a href={`/tagged/${tag}`} class="tag">#{tag}</a>
+    ))}</small>
+			</div>
+		</div>
+		<footer>
+			<Footer />
+		</footer>
+	</body>
+</html>
