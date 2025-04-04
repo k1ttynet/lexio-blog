@@ -4,10 +4,10 @@ const allPosts = Object.values(import.meta.glob('./article/*.md', { eager: true 
 const postsFirst = allPosts.filter((post: any) => post.frontmatter.tags.includes("2022")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
 const postsSecond = allPosts.filter((post: any) => post.frontmatter.tags.includes("2024")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
 const postsThird = allPosts.filter((post: any) => post.frontmatter.tags.includes("2025")).sort((a, b) => new Date(b.frontmatter.shortenedDate).getTime() - new Date(a.frontmatter.shortenedDate).getTime());;
-const pageTitle = "doom's blog"
+const pageTitle = "doom.pet"
 ---
 <BaseLayout pageTitle={pageTitle}>
-<h2><mark>doom</mark>'s blog</h2>
+<h2><mark>doom</mark>.pet</h2>
 <p>all current blog entries:</p>
 <h3>2025</h3>
 <ul>
