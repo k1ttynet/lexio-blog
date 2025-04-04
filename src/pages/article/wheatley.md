@@ -57,4 +57,4 @@ And, after an overnight installation of the Mastodon GitHub repository and every
 
 I think that's where I'm gonna end this article. If you like the new site layout, let me know! :3
 
-**EDIT**: catrat.social has turned into a personal Sharkey instance for friends. If you want to sign up, sorry. (If you're a friend, just reach out to me and I'll give you an invite code.)
+**EDIT**: ~~catrat.social has turned into a personal Sharkey instance for friends. If you want to sign up, sorry. (If you're a friend, just reach out to me and I'll give you an invite code.)~~ So it's gone now LOL
