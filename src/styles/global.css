@@ -55,8 +55,8 @@ a {
 }
 a:hover {
   text-decoration-color: var(--accent);
-  text-underline-offset: -15px;
-  text-decoration-thickness: 1em;
+  text-underline-offset: -17px;
+  text-decoration-thickness: 20px;
   color: white;
 }
 img {
